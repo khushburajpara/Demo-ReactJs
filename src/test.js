@@ -1,18 +1,52 @@
 const data =
     [
         {
-            "firstName": "Khushbu",
-            "lastName": "Rajpara",
-            "age": 26,
-            "gender": "female",
-            "dob": "02-20-1993"
+            "id": 1,
+            "firstName": "John",
+            "lastName": "Mathew",
+            "age": 10,
+            "gender": "Male",
+            "blood_group": "B+"
         },
         {
-            "firstName": "Khushal",
-            "lastName": "Patel",
-            "age": 27,
-            "gender": "male",
-            "dob": "02-10-1993"
+            "id": 2,
+            "firstName": "Alice",
+            "lastName": "Cruz",
+            "age": 12,
+            "gender": "Female",
+            "blood_group": "A+"
+        },
+        {
+            "id": 3,
+            "firstName": "Senorita",
+            "lastName": "Raise",
+            "age": 15,
+            "gender": "Female",
+            "blood_group": "A-"
+        },
+        {
+            "id": 4,
+            "firstName": "Tony",
+            "lastName": "Hirat",
+            "age": 8,
+            "gender": "Male",
+            "blood_group": "AB+"
+        },
+        {
+            "id": 5,
+            "firstName": "Krish",
+            "lastName": "Rajpara",
+            "age": 16,
+            "gender": "Female",
+            "blood_group": "O+"
+        },
+        {
+            "id": 6,
+            "firstName": "Hridhan",
+            "lastName": "Swami",
+            "age": 12,
+            "gender": "Male",
+            "blood_group": "AB-"
         }
     ]
 export default data;

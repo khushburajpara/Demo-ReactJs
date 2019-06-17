@@ -21,7 +21,26 @@
 .App-link {
   color: #61dafb;
 }
+.tableLayout {
+  background:#fff !important;
+ }
 
+  .color_custom{
+    color: #1890ff !important;
+  }
+  .header_text{
+    text-align: center;
+    margin: auto;
+  }
+ .btn-add{
+  margin-top: 20px;
+ }
+.icon-component {
+  font-size: 20px !important; 
+ }
+ .margin-right{
+  margin-right: 15px !important;
+ }
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
