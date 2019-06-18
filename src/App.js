@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import 'antd/dist/antd.css';
-
 import AddEditModal from './AddEditModal.js';
-import { Table, Select, Button, Icon, Popconfirm, Row, Col } from 'antd';
-
+import { Table, Button, Icon, Popconfirm, Row, Col } from 'antd';
+import notification from './Notification';
 import './App.css';
-import data from './test';
-
-
+import data from './Sample';
+// notification.config({
+//   duration: 2
+// });
 class App extends Component {
   constructor(props) {
     super(props);
@@ -82,7 +82,6 @@ class App extends Component {
                     type="close-circle"
                     theme="outlined"
                     className="icon-component margin-right color_custom"
-                  //onClick={() => this.handleDelete(record)}
                   />
                 </Popconfirm>
 
@@ -109,7 +108,7 @@ class App extends Component {
     this.setState({
       data: dataSource.filter(item => item.id !== record.id)
     })
-
+    notification('success', 'Record Deleted Successfully');
   }
   handleEdit = (record) => {
     console.log("Record Info", record);
@@ -123,9 +122,7 @@ class App extends Component {
       showpopUp: false
     })
   }
-  handleOk = (e) => {
 
-  }
   handleFormData = (values) => {
     const currentData = [...this.state.data];
     if (0 < Object.keys(this.state.details).length) {
@@ -134,16 +131,25 @@ class App extends Component {
       this.setState({
         data: [...this.state.data]
       })
+      // notification['success']({
+      //   message: 'Record Saved Successfully'
+      // });
+      notification('success', 'Record Saved Successfully')
     }
     else {
       this.setState({
         data: [values, ...currentData]
       })
+      notification('success', 'Record Added Successfully')
+      // notification['success']({
+      //   message: 'Record Added Successfully'
+      // });
       //this.state.data.unshift(values);
     }
     this.setState({
       showpopUp: false
     }, () => { console.log("data.state", this.state.data); })
+
 
   }
   render() {
@@ -153,7 +159,6 @@ class App extends Component {
         <body>
           <AddEditModal
             visible={this.state.showpopUp}
-            onOk={this.handleOk}
             details={this.state.details}
             data={this.state.data}
             onCancel={this.handleCancel}
@@ -165,11 +170,9 @@ class App extends Component {
             <Col span={22}>
 
               <Row>
-                <Col span={24}>
-                  <Button type="primary" className="btn-add" onClick={this.addRecord}>
-                    Add
+                <Button type="primary" className="btn-add" onClick={this.addRecord}>
+                  Add
                   </Button>
-                </Col>
               </Row>
               <Row>
                 <Col span={24}>

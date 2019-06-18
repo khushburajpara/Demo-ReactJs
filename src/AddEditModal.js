@@ -78,7 +78,7 @@ class AddEditModal extends Component {
                     title={0 < Object.keys(this.props.details).length ? "Edit Record" : "Add Record"}
                     visible={this.props.visible}
                     //centered={true}
-                    onOk={this.props.onOk}
+                    //onOk={this.props.onOk}
                     onCancel={this.props.onCancel}
                     width={"40%"}
                     style={{ top: 20 }}
