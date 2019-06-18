@@ -125,26 +125,22 @@ class App extends Component {
 
   handleFormData = (values) => {
     const currentData = [...this.state.data];
+    // For Edit Records
     if (0 < Object.keys(this.state.details).length) {
       //debugger;
       this.state.data.splice(currentData.findIndex(item => item.id === values.id), 1, values);
       this.setState({
         data: [...this.state.data]
       })
-      // notification['success']({
-      //   message: 'Record Saved Successfully'
-      // });
       notification('success', 'Record Saved Successfully')
     }
+    //For Add Records
     else {
       this.setState({
         data: [values, ...currentData]
       })
       notification('success', 'Record Added Successfully')
-      // notification['success']({
-      //   message: 'Record Added Successfully'
-      // });
-      //this.state.data.unshift(values);
+
     }
     this.setState({
       showpopUp: false
@@ -157,6 +153,7 @@ class App extends Component {
     return (
       <div>
         <body>
+          {/* Common Modal Popup for add & edit */}
           <AddEditModal
             visible={this.state.showpopUp}
             details={this.state.details}
@@ -166,13 +163,13 @@ class App extends Component {
           />
           <h1 className="header_text color_custom">Students Records</h1>
           <Row type="flex" justify="center">
-            {/* <Col span={1}></Col> */}
+
             <Col span={22}>
 
               <Row>
                 <Button type="primary" className="btn-add" onClick={this.addRecord}>
                   Add
-                  </Button>
+                </Button>
               </Row>
               <Row>
                 <Col span={24}>
@@ -181,7 +178,6 @@ class App extends Component {
 
               </Row>
 
-              {/* <Col span={1}></Col> */}
             </Col>
           </Row>
         </body>

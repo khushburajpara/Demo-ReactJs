@@ -17,9 +17,11 @@ class AddEditModal extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
+                //For edit record pass id
                 if (Object.keys(this.props.details).length > 0) {
                     values.id = this.props.details.id;
                 }
+                //For new record add id
                 else {
                     values.id = this.props.data.length + 1;
                 }
@@ -84,8 +86,6 @@ class AddEditModal extends Component {
                     style={{ top: 20 }}
                     footer={false}
                     closable={true}
-                    //maskClosable={false}
-                    //footer={[]}
                     destroyOnClose={true}
                 >
                     <Form onSubmit={this.handleSubmit}>
