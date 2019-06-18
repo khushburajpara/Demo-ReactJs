@@ -17,9 +17,11 @@ class AddEditModal extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
+                //For edit record pass id
                 if (Object.keys(this.props.details).length > 0) {
                     values.id = this.props.details.id;
                 }
+                //For new record add id
                 else {
                     values.id = this.props.data.length + 1;
                 }
@@ -78,14 +80,12 @@ class AddEditModal extends Component {
                     title={0 < Object.keys(this.props.details).length ? "Edit Record" : "Add Record"}
                     visible={this.props.visible}
                     //centered={true}
-                    onOk={this.props.onOk}
+                    //onOk={this.props.onOk}
                     onCancel={this.props.onCancel}
                     width={"40%"}
                     style={{ top: 20 }}
                     footer={false}
                     closable={true}
-                    //maskClosable={false}
-                    //footer={[]}
                     destroyOnClose={true}
                 >
                     <Form onSubmit={this.handleSubmit}>
@@ -124,25 +124,7 @@ class AddEditModal extends Component {
                                 <Input placeholder="Age" />
                             )}
                         </Form.Item>
-                        {/* <Form.Item
-                            {...formItemLayout}
-                            label="Gender"
-                        >
-                            {getFieldDecorator('gender', {
-                                rules: [{ type: 'string', required: true, message: "Slect Gender", whitespace: true }],
-                                initialValue: 0 < Object.keys(this.props.details).length ? this.props.details.gender : ""
-                            })(
-                                <Select size="large"
-                                    style={{ borderRadius: '3px', fontSize: "0.9rem" }}
-                                    showSearch
-                                    optionFilterProp="children"
-                                    filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}
-                                >
-                                    <Option value="male">Male</Option>
-                                    <Option value="female">Female</Option>
-                                                                   </Select>
-                            )}
-                        </Form.Item> */}
+
                         <Form.Item
                             {...formItemLayout}
                             label="Gender"
@@ -171,17 +153,7 @@ class AddEditModal extends Component {
                                     })}
                                 </Select>)}
                         </Form.Item>
-                        {/* <Form.Item
-                  {...formItemLayout}
-                  label="Date of Joining"
-                >
-                  {getFieldDecorator('dob', {
-                    rules: [{ type: 'object', required: true, message: "Slect Date", whitespace: true }],
-                    initialValue: 0 < Object.keys(this.props.details).length ? moment(this.props.details.dob, stdformate) : ""
-                  })(
-                    <DatePicker format={stdformate} />
-                  )}
-                </Form.Item> */}
+
                         <Row>
                             <Col span={12}>
                                 <Form.Item {...tailFormItemLayout}>
@@ -190,7 +162,7 @@ class AddEditModal extends Component {
                             </Col>
                             <Col span={12}>
                                 <Form.Item {...tailFormItemLayout}>
-                                    <Button type="primary" htmlType="submit"> Save</Button>
+                                    <Button type="primary" htmlType="submit">Save</Button>
                                 </Form.Item>
                             </Col>
                         </Row>

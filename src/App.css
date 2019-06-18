@@ -23,18 +23,25 @@
 }
 .tableLayout {
   background:#fff !important;
+  
  }
-
+ .ant-table{
+  font-size: 16px !important;
+ }
+ .ant-table-thead > tr > th {
+  font-weight: 600;
+  }
   .color_custom{
     color: #1890ff !important;
   }
   .header_text{
     text-align: center;
     margin: auto;
-        font-size: xx-large;
+    font-size: xx-large;
   }
  .btn-add{
   margin-top: 20px;
+  float: right;
  }
 .icon-component {
   font-size: 20px !important; 
