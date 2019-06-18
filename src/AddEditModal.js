@@ -146,7 +146,7 @@ class AddEditModal extends Component {
                                 rules: [{ type: 'string', required: false }],
                                 initialValue: 0 < Object.keys(this.props.details).length ? this.props.details.blood_group : "+B"
                             })(
-                                <Select defaultValue="B+" onChange={this.handleChange}>
+                                <Select onChange={this.handleChange}>
 
                                     {dropDownValue.map(function (name, index) {
                                         return <Option key={name.key} value={name.value}>{name.value}</Option>;

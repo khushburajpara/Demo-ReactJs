@@ -14,6 +14,7 @@ class App extends Component {
     this.state = {
       data: data,
       showpopUp: false,
+      hasError: false,
       details: {},
     }
     this.columns = [
@@ -21,43 +22,21 @@ class App extends Component {
         title: 'First Name',
         dataIndex: 'firstName',
         key: 'firstName',
-        // render: (record) => (
-
-        //   <span>
-        //     {record.toUpperCase()}
-        //   </span >
-
-        // ),
       },
       {
         title: 'Last Name',
         dataIndex: 'lastName',
         key: 'lastName',
-        // render: (record) => (
-
-        //   <span>
-        //     {record.toUpperCase()}
-        //   </span >
-
-        // ),
       },
       {
         title: 'Age',
         dataIndex: 'age',
         key: 'age',
-
       },
       {
         title: 'Gender',
         dataIndex: 'gender',
         key: 'gender',
-        // render: (record) => (
-
-        //   <span>
-        //     {record.toUpperCase()}
-        //   </span >
-
-        // ),
       },
 
       {
@@ -96,6 +75,11 @@ class App extends Component {
     ]
 
   }
+
+  componentDidCatch(error, info) {
+    console.log("Error in child", error, info)
+  }
+
   addRecord = () => {
     this.setState({
       details: {},
@@ -145,11 +129,9 @@ class App extends Component {
     this.setState({
       showpopUp: false
     }, () => { console.log("data.state", this.state.data); })
-
-
   }
-  render() {
 
+  render() {
     return (
       <div>
         <body>
@@ -173,7 +155,7 @@ class App extends Component {
               </Row>
               <Row>
                 <Col span={24}>
-                  <Table className="tableLayout" columns={this.columns} dataSource={this.state.data} />
+                  <Table className="tableLayout" columns={this.columns} rowKey={record => record.id} dataSource={this.state.data} />
                 </Col>
 
               </Row>
