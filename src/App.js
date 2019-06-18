@@ -102,7 +102,7 @@ class App extends Component {
       showpopUp: true
     })
   }
-  handleDelete = (record) => {
+  handleDelete(record) {
     console.log("record", record);
     const dataSource = [...this.state.data];
     this.setState({
@@ -110,7 +110,7 @@ class App extends Component {
     })
     notification('success', 'Record Deleted Successfully');
   }
-  handleEdit = (record) => {
+  handleEdit(record) {
     console.log("Record Info", record);
     this.setState({
       details: record,
